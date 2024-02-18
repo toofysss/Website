@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +6,7 @@
   border: none;
   outline: none;
   scroll-behavior: smooth;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", "sans-serif";
   cursor: default;
   scrollbar-color: var(--main-color) transparent;
   scrollbar-width: thin;
@@ -48,7 +49,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 0.5rem 9%;
+  padding: 0.5rem 8%;
   background: var(--bg-color);
   display: flex;
   justify-content: space-between;
@@ -60,7 +61,26 @@ body {
   width: 65px;
   height: 65px;
 }
+.navbartext {
+  font-size: 1.7rem;
+  color: var(--text-color);
+  transition: 0.3s;
+}
 
+.dropdown-select:hover,
+.dropdown-select:focus {
+  padding-bottom: 0.5rem;
+  color: var(--main-color);
+  border-radius: 15%;
+  border-bottom: 0.2rem solid var(--main-color);
+  cursor: pointer;
+}
+.dropdown-select {
+  margin-left: 4rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: 1.7rem;
+}
 .navbar a {
   font-size: 1.7rem;
   color: var(--text-color);
@@ -122,6 +142,7 @@ span {
 }
 .text-animate {
   animation: fade-left 0.8s;
+  text-align: start;
 }
 .home-content .text-animate h3 {
   font-size: 3.2rem;
@@ -144,7 +165,7 @@ span {
   font-size: 1.6rem;
   color: var(--second-bg-color);
   letter-spacing: 0.1rem;
-  font-weight: 600;
+  font-weight: 800;
   transition: 0.5s ease;
   animation: fade-top 0.8s;
 }
@@ -282,6 +303,7 @@ span {
   border: 0.2rem solid var(--main-color);
   border-radius: 0.6rem;
   margin-bottom: 2rem;
+  text-align: start;
 }
 
 .eduction-content .content .year {
@@ -347,6 +369,7 @@ span {
   border: 0.2rem solid var(--main-color);
   border-radius: 0.6rem;
   margin-bottom: 2rem;
+  text-align: start;
 }
 
 .experience-content .content .year {
@@ -591,7 +614,8 @@ span {
   font-weight: 600;
   transition: 0.5s ease;
 }
-.bt__card:focus ,.bt__card {
+.bt__card:focus,
+.bt__card {
   background: var(--main-color);
   border: none;
   outline: none;
@@ -638,7 +662,8 @@ span {
   align-items: center;
   animation: pop-up 0.2s;
 }
-.close-button:focus ,.close-button {
+.close-button:focus,
+.close-button {
   background: none;
   border: none;
   outline: none;
@@ -683,7 +708,6 @@ span {
   margin: 15px;
   align-items: start;
   justify-content: flex-start;
-
 }
 
 .listimage {
@@ -894,7 +918,12 @@ span {
     margin: 0.25rem;
     text-align: center;
   }
-
+  .dropdown-select {
+    color: var(--text-color);
+    font-size: 1.7rem;
+    padding: 0.5rem 0;
+    margin: 0.25rem;
+  }
   #menu-icon {
     display: block;
     transition: 0.5s ease-out;

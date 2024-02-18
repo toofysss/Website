@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "./i18n";
 import App from "./App";
 import { initializeApp } from "firebase/app";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
@@ -31,7 +32,10 @@ export const fetchAboutData = async () => {
   const colRef = collection(db, "About");
   const snapshot = await getDocs(colRef).then((snapshot) =>
     snapshot.docs.map((doc) => {
-      return { Title: doc.data().about, link: doc.data().linkCv };
+      return {
+        link: doc.data().linkCv,
+        linkCvA: doc.data().linkCvA,
+      };
     })
   );
   return snapshot;
@@ -43,7 +47,9 @@ export const fetchExperienceData = async () => {
     snapshot.docs.map((doc) => {
       return {
         Title: doc.data().Title,
+        TitleA: doc.data().TitleA,
         Dscrp: doc.data().Dscrp,
+        DscrpA: doc.data().DscrpA,
         Year: doc.data().year,
       };
     })
@@ -57,7 +63,9 @@ export const fetchEductionData = async () => {
     snapshot.docs.map((doc) => {
       return {
         Title: doc.data().Title,
+        TitleA: doc.data().TitleA,
         Dscrp: doc.data().Dscrp,
+        DscrpA: doc.data().DscrpA,
         Year: doc.data().year,
       };
     })
@@ -74,7 +82,7 @@ export const fetchSkillsData = async () => {
       const subSkillsColRef = collection(db, "Skills", doc.id, "Skills");
       const subSkillsSnapshot = await getDocs(subSkillsColRef);
       const subSkills = subSkillsSnapshot.docs.map((subDoc) => subDoc.data());
-      return { Title: data.Title, Skills: subSkills };
+      return { Title: data.Title, TitleA: data.TitleA, Skills: subSkills };
     });
 
     return Promise.all(promises);
@@ -91,7 +99,7 @@ export const fetchProjectData = async () => {
       const subProgramColRef = collection(db, "Project", doc.id, "Program");
       const subProgramSnapshot = await getDocs(subProgramColRef);
       const subProgram = subProgramSnapshot.docs.map((subDoc) => subDoc.data());
-      return { Title: data.Title, Program: subProgram };
+      return { Title: data.Title, TitleA: data.TitleA, Program: subProgram };
     });
 
     return Promise.all(promises);

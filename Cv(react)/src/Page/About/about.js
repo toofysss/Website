@@ -1,20 +1,20 @@
-import logo from "../../Asset/logo.jpg";
+import { useTranslation } from "react-i18next";
+import logo from '../../Asset/logo.jpg';
 function About({ data }) {
   const { aboutData } = data;
+  const [t, il8n] = useTranslation();
 
   return (
     <section className="about" id="about">
       <h2 className="heading">
-        About <span>Me</span>
+        <span>{t("N2")}</span>
       </h2>
       <div className="about-img">
         <img src={logo} alt=""></img>
         <span className="circle-spin"></span>
       </div>
       <div className="about-content">
-        {aboutData &&
-          aboutData.length > 0 &&
-          aboutData.map((item) => <p key={item.Title}>{item.Title}</p>)}
+        <p>{t("About")} </p>
       </div>
     </section>
   );

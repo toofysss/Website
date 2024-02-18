@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import Details from "./Details";
+import { useTranslation } from "react-i18next";
+
 function Project({ data }) {
   const { ProjectData } = data;
   const [selectedProject, setSelectedProject] = useState(null);
   const [currentFilter, setCurrentFilter] = useState("*");
+  const [t, il8n] = useTranslation();
 
   const openPopup = (index) => {
     console.log(index);
@@ -25,16 +28,16 @@ function Project({ data }) {
   return (
     <section className="project" id="project">
       <h2 className="heading">
-        My <span>Project</span>
+        <span>{t("N6")}</span>
       </h2>
-      <div className="part">
+      <div className="part" dir={il8n.language == "en" ? "ltr" : "rtl"}>
         <div className="project-nav" id="filter-button">
           <ul>
             <li
               onClick={() => handleFilterClick("*")}
               className={currentFilter === "*" ? "current" : ""}
             >
-              <span>All Categories</span>
+              <span>{t("allcatagory")}</span>
             </li>
             {ProjectData.length > 0 &&
               ProjectData.map((item, index) => (
@@ -43,7 +46,9 @@ function Project({ data }) {
                   className={currentFilter === item.Title ? "current" : ""}
                   key={index}
                 >
-                  <span>{item.Title}</span>
+                  <span>
+                    {il8n.language == "en" ? item.Title : item.TitleA}
+                  </span>
                 </li>
               ))}
           </ul>
@@ -60,7 +65,10 @@ function Project({ data }) {
                 >
                   {project.Program.map((programItem, programIndex) => (
                     <div key={programIndex}>
-                      <div class="card__projects">
+                      <div
+                        class="card__projects"
+                        dir={il8n.language == "en" ? "ltr" : "ltr"}
+                      >
                         <div class="card__img">
                           <img src={programItem.ImgProfile} alt="" />
                         </div>
@@ -71,7 +79,7 @@ function Project({ data }) {
                             className="bt__card"
                             onClick={() => openPopup(programItem)}
                           >
-                            Details
+                            {t("Details")}
                           </button>
                         </div>
                       </div>

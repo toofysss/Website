@@ -1,12 +1,18 @@
 import applestore from "../../Asset/apple-app-store.svg";
 import googlePlay from "../../Asset/google-play.svg";
 import uptdown from "../../Asset/uptdown.png";
+import { useTranslation } from "react-i18next";
+
 function Details({ data }) {
   const { selectedProject, closePopup } = data;
+  const [t, il8n] = useTranslation();
 
   return (
     <div className="popup">
-      <div className="popup-content">
+      <div
+        className="popup-content"
+        dir={il8n.language == "en" ? "ltr" : "rtl"}
+      >
         <button className="close-button" onClick={closePopup}>
           <i className="bx bx-x"></i>
         </button>

@@ -54,7 +54,6 @@ function App() {
           <Experience data={{ ExperienceData }} />
           <Skills data={{ SkillsData }} />
           <Project data={{ ProjectData }} />
-          {/* <Project /> */}
           <Footer />
         </>
       }
