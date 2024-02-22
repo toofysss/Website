@@ -34,9 +34,9 @@ function App() {
       setExperienceData(await fetchExperienceData());
 
       setSkillsData(await fetchSkillsData());
-      setLoading(false);
       setProjectData(await fetchProjectData());
-    };
+         setLoading(false);
+ };
 
     fetchData();
   }, []);

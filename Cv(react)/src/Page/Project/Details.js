@@ -1,6 +1,7 @@
 import applestore from "../../Asset/apple-app-store.svg";
 import googlePlay from "../../Asset/google-play.svg";
 import uptdown from "../../Asset/uptdown.png";
+import mega from "../../Asset/mega.png";
 import { useTranslation } from "react-i18next";
 
 function Details({ data }) {
@@ -47,14 +48,23 @@ function Details({ data }) {
                       <img src={googlePlay} alt="Apple Store" />
                     </a>
                   )}
-
                   {selectedProject.Links.Uptdown && (
                     <a
-                      rel="noopener noreferrer"
                       href={selectedProject.Links.Uptdown}
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <img src={uptdown} alt="Apple Store" />
+                    </a>
+                  )}
+
+                  {selectedProject.Links.Mega && (
+                    <a
+                      rel="noopener noreferrer"
+                      href={selectedProject.Links.Mega}
+                      target="_blank"
+                    >
+                      <img src={mega} alt="Apple Store" />
                     </a>
                   )}
                 </div>
