@@ -53,7 +53,7 @@ function Project({ data }) {
               ))}
           </ul>
         </div>
-        <div class="portfoliocontainer">
+        <div className="portfoliocontainer">
           {filteredProjects.map(
             (project, index) =>
               project.Program &&
@@ -66,13 +66,13 @@ function Project({ data }) {
                   {project.Program.map((programItem, programIndex) => (
                     <div key={programIndex}>
                       <div
-                        class="card__projects"
+                        className="card__projects"
                         dir={il8n.language == "en" ? "ltr" : "ltr"}
                       >
-                        <div class="card__img">
+                        <div className="card__img">
                           <img src={programItem.ImgProfile} alt="" />
                         </div>
-                        <div class="card__info">
+                        <div className="card__info">
                           <h2 className="card__title">{programItem.Name}</h2>
                           <p className="card-text">{programItem.Dscrp}</p>
                           <button

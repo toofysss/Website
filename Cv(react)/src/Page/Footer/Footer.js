@@ -30,14 +30,14 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i class="bx bxl-telegram"></i>
+                <i className="bx bxl-telegram"></i>
               </a>
               <a
                 rel="noopener noreferrer"
                 href="https://www.instagram.com/toofy_.s?utm_source=qr&igsh=djNrb25lamUxaGEz"
                 target="_blank"
               >
-                <i class="bx bxl-instagram"></i>
+                <i className="bx bxl-instagram"></i>
               </a>
               <a
                 rel="noopener noreferrer"
