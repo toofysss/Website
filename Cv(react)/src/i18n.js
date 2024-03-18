@@ -16,7 +16,7 @@ const resources = {
       En: "English",
       Name: "Mustafa Saad",
       About:
-        "Passionate Technologe Developer And Enginner With A Diverse Projects Background Enjoy Sharing Knowledge And Always Eager To Expand My Skills. Committed To Excelling As A Programmer,Bringing A Con-Tinuous Learning Mindset To Contribute Valuable Insights And En-hance Team Effectivenes",
+        "Developer with A Comprehensive knowledge To Doing Anything Related To Flutter & Dot Net Technologies With Interface Designing & Implementation. Key Skills Include Fast Learning, Self-Motivation, And Collaboration Skills To Achieve Organizational Objectives And A knack For Analytical Thinking That Helps For Problem-Solving With A Commitment To Staying Updated With Industry trends.",
       DownloadCv: "View CV",
       i: "I'm",
       allcatagory: "All Categories",
@@ -38,7 +38,7 @@ const resources = {
       En: "الأنكليزية",
       Name: "مصطفى سعد",
       About:
-        "مطور تكنولوجي شغوف ومشارك مع خلفية مشاريع متنوعة استمتع بمشاركة المعرفة وحريص دائما على توسيع مهاراتي. ملتزمون بالتفوق كمبرمج ، وتقديم عقلية التعلم المستمر للمساهمة برؤى قيمة وفعالية الفريق",
+        "مطور يتمتع بمعرفة شاملة للقيام بأي شيء يتعلق بتقنيات Flutter وDot Net مع تصميم الواجهة وتنفيذها. تشمل المهارات الأساسية التعلم السريع والتحفيز الذاتي ومهارات التعاون لتحقيق الأهداف التنظيمية وموهبة التفكير التحليلي الذي يساعد على حل المشكلات- حل المشكلة مع الالتزام بالبقاء على اطلاع بأحدث اتجاهات الصناعة.",
       DownloadCv: "مشاهدة السيرة الذاتية",
       i: "أنا",
       Details: "عرض التفاصيل",

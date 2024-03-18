@@ -102,16 +102,14 @@ function Navbar() {
             name="language"
             className="dropdown-select"
             onChange={handleDropdownChange}
-            defaultValue={selectedLanguage}
+            value={selectedLanguage}
           >
-            <option disabled>
-              {t("lang")}
-            </option>
+            <option disabled>{t("lang")}</option>
             <option
               className={`navbartext ${
                 selectedLanguage === "en" ? "selected" : ""
               }`}
-              defaultValue="en"
+              value="en"
             >
               {t("En")}
             </option>
@@ -119,7 +117,7 @@ function Navbar() {
               className={`navbartext ${
                 selectedLanguage === "ar" ? "selected" : ""
               }`}
-              defaultValue="ar"
+              value="ar"
             >
               {t("Ar")}
             </option>

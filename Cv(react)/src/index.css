@@ -432,33 +432,13 @@ span {
 }
 
 .Skills-content .progress_bar {
-  padding: 1rem 0;
+  padding: 1rem 2rem;
 }
 
-.Skills-content .progress_bar h3 {
-  font-size: 1.7rem;
-  display: flex;
-  justify-content: space-between;
+.Skills-content .progress_bar ul {
+  list-style-type: disc;
+  font-size: 1.9rem;
 }
-
-.Skills-content .progress_bar h3 span {
-  color: var(--text-color);
-}
-
-.Skills-content .progress_bar .bar {
-  height: 2.5rem;
-  border-radius: 0.6rem;
-  border: 0.2rem solid var(--main-color);
-  padding: 0.5rem;
-  margin: 1rem 0;
-}
-.Skills-content .progress_bar .bar span {
-  display: block;
-  height: 100%;
-  border-radius: 0.3rem;
-  background-color: var(--main-color);
-}
-
 /* End Skills */
 
 /* Project */

@@ -35,12 +35,7 @@ function Home({ data }) {
           <p>{t("About")} </p>
 
           {aboutData && aboutData.length > 0 && aboutData[0].link && (
-            <a
-              href={
-                il8n.language == "en" ? aboutData[0].link : aboutData[0].linkCvA
-              }
-              className="btn"
-            >
+            <a href={aboutData[0].link} className="btn">
               {t("DownloadCv")}
             </a>
           )}

@@ -20,12 +20,9 @@ function Skills({ data }) {
               <div className="Skills-content">
                 {item.Skills.map((item, index) => (
                   <div className="progress_bar" key={index}>
-                    <h3>
-                      {item.lang} <span>{item.Count}%</span>
-                    </h3>
-                    <div className="bar">
-                      <span style={{ width: `${item.Count}%` }}></span>
-                    </div>
+                    <ul>
+                      <li>{item.lang}</li>
+                    </ul>
                   </div>
                 ))}
               </div>
