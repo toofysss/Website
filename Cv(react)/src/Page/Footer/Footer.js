@@ -1,4 +1,25 @@
+import "./footer.css";
 function Footer() {
+  const footer = [
+    {
+      id: "https://www.facebook.com/profile.php?id=100021865501901&mibextid=ZbWKwL",
+      icon: "bx bxl-facebook-circle",
+    },
+    { id: "https://wa.me/9647737446118", icon: "bx bxl-whatsapp" },
+    { id: "https://t.me/toofy_s", icon: "bx bxl-telegram" },
+    {
+      id: "https://www.instagram.com/toofy_.s?utm_source=qr&igsh=djNrb25lamUxaGEz",
+      icon: "bx bxl-instagram",
+    },
+    {
+      id: "https://www.linkedin.com/in/mustafa-saad-761488282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      icon: "bx bxl-linkedin",
+    },
+    {
+      id: "https://github.com/toofysss/",
+      icon: "bx bxl-github",
+    },
+  ];
   return (
     <footer className="site-footer">
       <div className="container">
@@ -11,48 +32,16 @@ function Footer() {
 
           <div className="col-md-4 col-sm-6 col-xs-12">
             <ul className="social-media">
-              <a
-                rel="noopener noreferrer"
-                target="_blank"
-                href="https://www.facebook.com/profile.php?id=100021865501901&mibextid=ZbWKwL"
-              >
-                <i className="bx bxl-facebook-circle"></i>
-              </a>
-              <a
-                href="https://wa.me/9647737446118"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="bx bxl-whatsapp"></i>
-              </a>
-              <a
-                href="https://t.me/toofy_s"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="bx bxl-telegram"></i>
-              </a>
-              <a
-                rel="noopener noreferrer"
-                href="https://www.instagram.com/toofy_.s?utm_source=qr&igsh=djNrb25lamUxaGEz"
-                target="_blank"
-              >
-                <i className="bx bxl-instagram"></i>
-              </a>
-              <a
-                rel="noopener noreferrer"
-                href="https://www.linkedin.com/in/mustafa-saad-761488282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                target="_blank"
-              >
-                <i className="bx bxl-linkedin"></i>
-              </a>
-              <a
-                rel="noopener noreferrer"
-                href="https://github.com/toofysss/"
-                target="_blank"
-              >
-                <i className="bx bxl-github"></i>
-              </a>
+              {footer.map((item) => (
+                <a
+                  rel="noopener noreferrer"
+                  key={item.id}
+                  target="_blank"
+                  href={item.id}
+                >
+                  <i className={item.icon}></i>
+                </a>
+              ))}
             </ul>
           </div>
         </div>

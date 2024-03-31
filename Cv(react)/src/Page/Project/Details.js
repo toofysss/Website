@@ -3,35 +3,32 @@ import googlePlay from "../../Asset/google-play.svg";
 import website from "../../Asset/website.png";
 import mega from "../../Asset/mega.png";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
+import Loading from "../loading/loading";
+import "./details.css";
+function Details() {
+  const [il8n] = useTranslation();
 
-function Details({ data }) {
-  const { selectedProject, closePopup } = data;
-  const [t, il8n] = useTranslation();
+  const location = useLocation();
+  const { program } = location.state || {};
 
+  if (!program) {
+    return <Loading />;
+  }
   return (
-    <div className="popup">
-      <div
-        className="popup-content"
-        dir={il8n.language == "en" ? "ltr" : "rtl"}
-      >
-        <button className="close-button" onClick={closePopup}>
-          <i className="bx bx-x"></i>
-        </button>
+    <section className="popup">
+      <div className="popup-content">
         <div className="details-content">
-          <img
-            className="ProjectImg"
-            src={selectedProject.ImgProfile}
-            alt=""
-          ></img>
+          <img className="ProjectImg" src={program.ImgProfile} alt=""></img>
           <div className="details-text">
-            <h3>{selectedProject.Name}</h3>
-            <h4>{selectedProject.Dscrp}</h4>
+            <h3>{program.Name}</h3>
+            <h4>{program.Dscrp}</h4>
             <div className="app-icons">
-              {selectedProject.Links && (
+              {program.Links && (
                 <div>
-                  {selectedProject.Links.Appstore && (
+                  {program.Links.Appstore && (
                     <a
-                      href={selectedProject.Links.Appstore}
+                      href={program.Links.Appstore}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -39,18 +36,18 @@ function Details({ data }) {
                     </a>
                   )}
 
-                  {selectedProject.Links.GooglePlay && (
+                  {program.Links.GooglePlay && (
                     <a
-                      href={selectedProject.Links.GooglePlay}
+                      href={program.Links.GooglePlay}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <img src={googlePlay} alt="Apple Store" />
                     </a>
                   )}
-                  {selectedProject.Links.website && (
+                  {program.Links.website && (
                     <a
-                      href={selectedProject.Links.website}
+                      href={program.Links.website}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -58,10 +55,10 @@ function Details({ data }) {
                     </a>
                   )}
 
-                  {selectedProject.Links.Mega && (
+                  {program.Links.Mega && (
                     <a
                       rel="noopener noreferrer"
-                      href={selectedProject.Links.Mega}
+                      href={program.Links.Mega}
                       target="_blank"
                     >
                       <img src={mega} alt="Apple Store" />
@@ -73,13 +70,13 @@ function Details({ data }) {
           </div>
         </div>
         <div className="listimage">
-          {selectedProject.ImgList &&
-            selectedProject.ImgList.map((img, index) => (
+          {program.ImgList &&
+            program.ImgList.map((img, index) => (
               <img key={index} src={img} alt=""></img>
             ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

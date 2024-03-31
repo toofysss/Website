@@ -1,50 +1,45 @@
 import React, { useState, useEffect, useRef } from "react";
 import logo from "../../Asset/logo.png";
 import { useTranslation } from "react-i18next";
+import { Link, useLocation } from "react-router-dom";
 
+import "./Navbar.css";
 function Navbar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [selectedLink, setSelectedLink] = useState(null);
-  const [selectedLanguage, setSelectedLanguage] = useState('en');
+  const location = useLocation();
 
+  const [selectedLink, setSelectedLink] = useState(null);
   const [t, il8n] = useTranslation();
   const dropdownRef = useRef(null);
 
   const handleMenuClick = (event) => {
     event.stopPropagation();
     setMenuOpen(!isMenuOpen);
+    window.scrollTo(0, 0);
   };
 
   const handleDropdownChange = (e) => {
-    const selectedLanguage = e.target.value;
-    il8n.changeLanguage(selectedLanguage);
-    setSelectedLanguage(selectedLanguage);
+    il8n.changeLanguage(e.target.value);
     setMenuOpen(false);
   };
 
-  const handleLinkClick = (linkId, event) => {
-    setMenuOpen(false);
-    setSelectedLink(linkId);
-    const targetSection = document.getElementById(linkId);
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: "smooth" });
-    }
-    event.preventDefault();
-  };
-
-  const handleBodyClick = (event) => {
-    if (isMenuOpen && !dropdownRef.current.contains(event.target)) {
-      setMenuOpen(false);
-    }
-  };
+  const links = [
+    { id: "home", label: t("N1") },
+    { id: "eduction", label: t("N3") },
+    { id: "experience", label: t("N4") },
+    { id: "skills", label: t("N5") },
+    { id: "project", label: t("N6") },
+  ];
 
   useEffect(() => {
-    document.body.addEventListener("click", handleBodyClick);
-
-    return () => {
-      document.body.removeEventListener("click", handleBodyClick);
-    };
-  }, [isMenuOpen]);
+    const currentPath = location.pathname;
+    if (currentPath === "/") {
+      setSelectedLink(links[0].id);
+    } else {
+      const linkId = currentPath.split("/")[1];
+      setSelectedLink(linkId);
+    }
+  }, [location.pathname]);
 
   return (
     <header dir={il8n.language == "en" ? "ltr" : "rtl"} className="header">
@@ -53,72 +48,24 @@ function Navbar() {
       </h1>
       <i className="bx bx-menu" id="menu-icon" onClick={handleMenuClick}></i>
       <nav className={`navbar ${isMenuOpen ? "open" : ""}`}>
-        <a
-          href="#home"
-          className={
-            selectedLink === null || selectedLink === "home" ? "active" : ""
-          }
-          onClick={(e) => handleLinkClick("home", e)}
-        >
-          {t("N1")}
-        </a>
-        <a
-          href="#about"
-          className={selectedLink === "about" ? "active" : ""}
-          onClick={(e) => handleLinkClick("about", e)}
-        >
-          {t("N2")}
-        </a>
-        <a
-          href="#eduction"
-          className={selectedLink === "eduction" ? "active" : ""}
-          onClick={(e) => handleLinkClick("eduction", e)}
-        >
-          {t("N3")}
-        </a>
-        <a
-          href="#experience"
-          className={selectedLink === "experience" ? "active" : ""}
-          onClick={(e) => handleLinkClick("experience", e)}
-        >
-          {t("N4")}
-        </a>
-        <a
-          href="#Skills"
-          className={selectedLink === "Skills" ? "active" : ""}
-          onClick={(e) => handleLinkClick("Skills", e)}
-        >
-          {t("N5")}
-        </a>
-        <a
-          href="#project"
-          className={selectedLink === "project" ? "active" : ""}
-          onClick={(e) => handleLinkClick("project", e)}
-        >
-          {t("N6")}
-        </a>
-        <div ref={dropdownRef}>
-          <select
-            name="language"
-            className="dropdown-select"
-            onChange={handleDropdownChange}
-            value={selectedLanguage}
+        {links.map((link) => (
+          <Link
+            key={link.id}
+            onClick={handleMenuClick}
+            to={`/${link.id.toLowerCase()}`}
+            className={`navbtn ${selectedLink === link.id ? "active" : ""}`}
           >
-            <option disabled>{t("lang")}</option>
-            <option
-              className={`navbartext ${
-                selectedLanguage === "en" ? "selected" : ""
-              }`}
-              value="en"
-            >
+            {link.label}
+          </Link>
+        ))}
+
+        <div ref={dropdownRef}>
+          <select className="dropdown-select" onChange={handleDropdownChange}>
+            <option hidden>{t("lang")}</option>
+            <option className={`navbartext `} value="en">
               {t("En")}
             </option>
-            <option
-              className={`navbartext ${
-                selectedLanguage === "ar" ? "selected" : ""
-              }`}
-              value="ar"
-            >
+            <option className={`navbartext  `} value="ar">
               {t("Ar")}
             </option>
           </select>
