@@ -48,7 +48,7 @@ function Client() {
                       className={`bx bx-chevrons-${
                         i18n.language === "en" ? "right" : "left"
                       }`}
-                    ></i>{" "}
+                    ></i>
                     {i18n.language === "en" ? item.subtitleE : item.subtitleA}
                   </h3>
                 ))}

@@ -53,7 +53,7 @@ function Price() {
                 <h1>{i18n.language === "en" ? item.titleE : item.titleA}</h1>
                 <div className="offer-options">
                   {item.Dscrp.map((description, idx) => (
-                    <p key={idx}>
+                    <p key={idx} className="item-container">
                       <span>&#10004; </span> {description}
                     </p>
                   ))}

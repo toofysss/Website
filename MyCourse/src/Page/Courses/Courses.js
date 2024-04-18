@@ -92,23 +92,31 @@ function Portfolio() {
                   )
                   .map((course, courseIndex) => (
                     <div className={`grid-item ${filter}`} key={courseIndex}>
-                      {course.projects.map((project, index) => (
-                        <div key={index} className="card">
-                          <div>
-                            <img alt="" src={project.img}></img>
-                            <div className="panel">
-                              <span className="date">{project.Title}</span>
-                              <div className="customer rwobtn">
-                                <div>
-                                  <i className="bx bx-user"></i>
-                                  {project.Customer.length}
+                      {course &&
+                        course.projects &&
+                        course.projects.length > 0 &&
+                        course.projects.map((project, index) => (
+                          <div key={index} className="card">
+                            <div>
+                              <img alt="" src={project.img}></img>
+                              <div className="panel">
+                                <span className="date">{project.Title}</span>
+                                <div className="customer rwobtn">
+                                  <div>
+                                    <i className="bx bx-user"></i>{" "}
+                                    {project.Customer &&
+                                    project.Customer.length > 0
+                                      ? project.Customer.length
+                                      : 0}
+                                  </div>
+                                  <button className="btn">
+                                    {t("Rigester")}
+                                  </button>
                                 </div>
-                                <button className="btn">{t("Rigester")}</button>
                               </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
                     </div>
                   ))}
               </div>

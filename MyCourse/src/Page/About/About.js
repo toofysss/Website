@@ -2,7 +2,7 @@ import "./About.css";
 import { useTranslation } from "react-i18next";
 
 function About() {
-  const [t] = useTranslation();
+  const [t, i18n] = useTranslation();
   const Abouts = [
     {
       Title: "The Idea of Found",
@@ -71,7 +71,12 @@ function About() {
                 <p>{about.Subtitle}</p>
                 {about.Data.map((item, itemIndex) => (
                   <h3 key={itemIndex} className="item-container">
-                    <i className="bx bx-chevrons-right"></i> {item.Dscrp}
+                    <i
+                      className={`bx bx-chevrons-${
+                        i18n.language === "en" ? "right" : "left"
+                      }`}
+                    ></i>
+                    {item.Dscrp}
                   </h3>
                 ))}
               </div>

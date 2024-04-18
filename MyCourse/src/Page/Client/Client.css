@@ -27,7 +27,6 @@
 .Client .Client-column {
   text-align: start;
 
- 
   margin-block: 15px;
 }
 .Client .Client-column h2,
@@ -63,4 +62,7 @@
 .Client .Client-content .content {
   align-items: start;
   justify-content: start;
+}
+.Client .item-container {
+  display: flex;
 }

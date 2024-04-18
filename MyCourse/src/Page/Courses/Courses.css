@@ -25,10 +25,9 @@
   margin-bottom: 40px;
   overflow-x: auto;
   scrollbar-color: var(--spancolor) transparent;
-  scrollbar-width: thin !important; 
+  scrollbar-width: thin !important;
   white-space: nowrap;
 }
- 
 .course .button-group .button {
   display: inline-block;
   padding: 10px 20px;
@@ -69,6 +68,7 @@
   cursor: pointer;
   padding-inline: 5px;
   border-radius: 0.8rem;
+  margin-block: 15px;
   background-color: transparent !important;
   animation: scaleUp 0.25s ease forwards;
 }

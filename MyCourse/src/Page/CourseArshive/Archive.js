@@ -45,17 +45,19 @@ function Archive() {
             >
               <div>
                 <h2>{archive.year}</h2>
-                {archive.Dscrp.map((item, itemIndex) => (
-                  <h3 key={itemIndex} className="item-container">
-                    <i
-                      className={`bx bx-chevrons-${
-                        i18n.language === "en" ? "right" : "left"
-                      }`}
-                    ></i>
-
-                    {i18n.language === "en" ? item.subtitleE : item.subtitleA}
-                  </h3>
-                ))}
+                {archive &&
+                  archive.Dscrp &&
+                  archive.Dscrp.length > 0 &&
+                  archive.Dscrp.map((item, itemIndex) => (
+                    <h3 key={itemIndex} className="item-container">
+                      <i
+                        className={`bx bx-chevrons-${
+                          i18n.language === "en" ? "right" : "left"
+                        }`}
+                      ></i>
+                      {i18n.language === "en" ? item.subtitleE : item.subtitleA}
+                    </h3>
+                  ))}
               </div>
             </div>
           ))}

@@ -61,7 +61,6 @@
 }
 .about .item-container {
   display: flex;
-  align-items: center;
 }
 .about .about-content h4 {
   margin-bottom: 3rem;

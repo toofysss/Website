@@ -21,7 +21,7 @@ function Home() {
             <button className="btn" onClick={handleCourseClick}>
               {t("GetStrated")}
             </button>
-            <Link to={`/course`} className="Discovery">
+            <Link to={`/price`} className="Discovery">
               <i className="bx bx-play-circle"></i>
               {t("Started")}
             </Link>
